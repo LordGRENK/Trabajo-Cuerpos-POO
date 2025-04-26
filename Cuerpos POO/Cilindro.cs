@@ -7,14 +7,14 @@ using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
 {
-    internal class Ortoedro : Poliedros
+    class Cilindro : Redondos
     {
         private AreaLateral areaLateral;
         private AreaTotal areaTotal;
         private Volumen Volumen;
         private Verificadores Verificador;
 
-        public Ortoedro()
+        public Cilindro()
         {
             areaLateral = new AreaLateral();
             areaTotal = new AreaTotal();
@@ -22,31 +22,33 @@ namespace Cuerpos_POO
             Verificador = new Verificadores();
         }
 
-        public void IniOrtoedro()
+        public void IniCilindro()
         {
-            Console.WriteLine("TRABAJANDO CON CUERPO GEOMETRICO ORTOEDRO");
+            Console.WriteLine("TRABAJANDO CON CUERPO GEOMÉTRICO: CILINDRO");
             Console.WriteLine("Se efectuará: Área lateral, total y volumen.");
             Console.WriteLine("============================================");
-            Console.WriteLine("Para esto por favor le solicitaremos una serie de datos.");
+            Console.WriteLine("Por favor ingrese los siguientes datos:");
 
-            Console.WriteLine("\nPor favor ingrese la longitud del ortoedro:");
-            _longitud = Verificador.VerificarDouble();
+            Console.WriteLine("\nIngrese el radio de la base del cilindro:");
+            _radio = Verificador.VerificarDouble();
 
-            Console.WriteLine("\nPor favor ingrese el ancho del ortoedro:");
-            _ancho = Verificador.VerificarDouble();
-
-            Console.WriteLine("\nPor favor ingrese la altura del ortoedro:");
+            Console.WriteLine("\nIngrese la altura del cilindro:");
             _altura = Verificador.VerificarDouble();
 
-            areaLateral.DefinirAreaLateral(2 * (_longitud * _altura + _ancho * _altura));
-            areaTotal.DefinirAreaTotal(areaLateral.UtilizarAreaLateral() + (2 * (_longitud * _ancho)));
-            Volumen.DefinirVolumen(_longitud * _ancho * _altura);
+            _AreaBase = Math.PI * Math.Pow(_radio, 2);
+            double areaLateralCalculada = 2 * Math.PI * _radio * _altura;
+            double areaTotalCalculada = areaLateralCalculada + 2 * _AreaBase;
+            double volumenCalculado = _AreaBase * _altura;
+
+            areaLateral.DefinirAreaLateral(areaLateralCalculada);
+            areaTotal.DefinirAreaTotal(areaTotalCalculada);
+            Volumen.DefinirVolumen(volumenCalculado);
         }
 
-        public override void MostrarPoliedro()
+        public override void MostrarCuerpoRedondo()
         {
             Console.WriteLine("\n============================================");
-            Console.WriteLine("¡Cálculos de su ortoedro realizados correctamente!");
+            Console.WriteLine("¡Cálculos de su cilindro realizados correctamente!");
             Console.WriteLine($"Área lateral: {areaLateral.UtilizarAreaLateral():F2} unidades cuadradas");
             Console.WriteLine($"Área total: {areaTotal.UtilizarAreaTotal():F2} unidades cuadradas");
             Console.WriteLine($"Volumen: {Volumen.UtilizarVolumen():F2} unidades cúbicas");

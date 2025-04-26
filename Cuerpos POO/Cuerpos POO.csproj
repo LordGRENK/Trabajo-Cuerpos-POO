@@ -45,15 +45,28 @@
   <ItemGroup>
     <Compile Include="AreaLateral.cs" />
     <Compile Include="AreaTotal.cs" />
+    <Compile Include="CasqueteEsferico.cs" />
+    <Compile Include="CasqueteyCunaEsferica.cs" />
+    <Compile Include="Cilindro.cs" />
+    <Compile Include="Cono.cs" />
     <Compile Include="CuerposGeometricos.cs" />
+    <Compile Include="Dodecaedro.cs" />
+    <Compile Include="Esfera.cs" />
+    <Compile Include="Hexaedro.cs" />
+    <Compile Include="Icosaedro.cs" />
+    <Compile Include="Octaedro.cs" />
     <Compile Include="Ortoedro.cs" />
     <Compile Include="Poliedros.cs" />
     <Compile Include="Prisma.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Redondos.cs" />
+    <Compile Include="Tetraedro.cs" />
+    <Compile Include="TroncoDeCono.cs" />
+    <Compile Include="TroncoPiramide.cs" />
     <Compile Include="Verificardores.cs" />
     <Compile Include="Volumen.cs" />
+    <Compile Include="ZonaEsferica.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

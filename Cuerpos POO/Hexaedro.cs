@@ -7,14 +7,14 @@ using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
 {
-    internal class Ortoedro : Poliedros
+    internal class Hexaedro : Poliedros
     {
         private AreaLateral areaLateral;
         private AreaTotal areaTotal;
         private Volumen Volumen;
         private Verificadores Verificador;
 
-        public Ortoedro()
+        public Hexaedro()
         {
             areaLateral = new AreaLateral();
             areaTotal = new AreaTotal();
@@ -22,31 +22,27 @@ namespace Cuerpos_POO
             Verificador = new Verificadores();
         }
 
-        public void IniOrtoedro()
+        public void IniHexaedro()
         {
-            Console.WriteLine("TRABAJANDO CON CUERPO GEOMETRICO ORTOEDRO");
+            Console.WriteLine("TRABAJANDO CON CUERPO GEOMETRICO HEXAEDRO (CUBO)");
             Console.WriteLine("Se efectuará: Área lateral, total y volumen.");
             Console.WriteLine("============================================");
             Console.WriteLine("Para esto por favor le solicitaremos una serie de datos.");
 
-            Console.WriteLine("\nPor favor ingrese la longitud del ortoedro:");
-            _longitud = Verificador.VerificarDouble();
+            Console.WriteLine("\nPor favor ingrese la longitud de una arista del cubo:");
+            _arista = Verificador.VerificarDouble();
 
-            Console.WriteLine("\nPor favor ingrese el ancho del ortoedro:");
-            _ancho = Verificador.VerificarDouble();
+            double areaCara = _arista * _arista;
 
-            Console.WriteLine("\nPor favor ingrese la altura del ortoedro:");
-            _altura = Verificador.VerificarDouble();
-
-            areaLateral.DefinirAreaLateral(2 * (_longitud * _altura + _ancho * _altura));
-            areaTotal.DefinirAreaTotal(areaLateral.UtilizarAreaLateral() + (2 * (_longitud * _ancho)));
-            Volumen.DefinirVolumen(_longitud * _ancho * _altura);
+            areaLateral.DefinirAreaLateral(4 * areaCara);
+            areaTotal.DefinirAreaTotal(6 * areaCara);
+            Volumen.DefinirVolumen(_arista * _arista * _arista);
         }
 
         public override void MostrarPoliedro()
         {
             Console.WriteLine("\n============================================");
-            Console.WriteLine("¡Cálculos de su ortoedro realizados correctamente!");
+            Console.WriteLine("¡Cálculos de su hexaedro (cubo) realizados correctamente!");
             Console.WriteLine($"Área lateral: {areaLateral.UtilizarAreaLateral():F2} unidades cuadradas");
             Console.WriteLine($"Área total: {areaTotal.UtilizarAreaTotal():F2} unidades cuadradas");
             Console.WriteLine($"Volumen: {Volumen.UtilizarVolumen():F2} unidades cúbicas");

@@ -4,111 +4,93 @@ namespace POO_Cuerpos_Geometricos
 {
     class Verificadores
     {
-        private int _retorno = 0;
-        private double _RetornoDOuble = 0;
-        public int VerificarEntero()
+        public int VerificarEntero(bool permitirCero = false)
         {
-            string entero = "";
-            bool Verifi = false;
+            int resultado;
+            bool esValido = false;
+            do
             {
-                do
+                Console.Write("-> ");
+                string entrada = Console.ReadLine();
+                if (int.TryParse(entrada, out resultado))
                 {
-                    Console.Write("->");
-                    entero = Console.ReadLine();
-                    if (int.TryParse(entero, out int numero))
+                    if (resultado > 0 || (permitirCero && resultado == 0))
                     {
-                        _retorno = Convert.ToInt32(entero);
-                        if (_retorno > 0)
-                        {
-                            Verifi = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Porfavor ingrese un numero correcto");
-                            Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                            Console.WriteLine("");
-                        }
-                        Verifi = true;
+                        esValido = true;
                     }
                     else
                     {
-                        Console.WriteLine("Porfavor ingrese un numero correcto");
-                        Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                        Console.WriteLine("");
-
+                        MostrarMensajeError(permitirCero ? "Ingrese un número mayor o igual a 0." : "Ingrese un número mayor que 0.");
                     }
-                } while (!Verifi);
-                return _retorno;
-            }
+                }
+                else
+                {
+                    MostrarMensajeError("Debe ingresar un número entero válido.");
+                }
+            } while (!esValido);
+            return resultado;
         }
+
         public int VerificarSiNo()
         {
-            string entero = "";
-            bool Verifi = false;
+            int resultado;
+            bool esValido = false;
+            do
             {
-                do
+                Console.Write("-> ");
+                string entrada = Console.ReadLine();
+                if (int.TryParse(entrada, out resultado))
                 {
-                    Console.Write("->");
-                    entero = Console.ReadLine();
-                    if (int.TryParse(entero, out int numero))
+                    if (resultado == 1 || resultado == 2)
                     {
-                        _retorno = Convert.ToInt32(entero);
-                        if (_retorno == 1 || _retorno == 2)
-                        {
-                            Verifi = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Porfavor ingrese un numero correcto");
-                            Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                            Console.WriteLine("");
-                        }
+                        esValido = true;
                     }
                     else
                     {
-                        Console.WriteLine("Porfavor ingrese un numero correcto");
-                        Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                        Console.WriteLine("");
+                        MostrarMensajeError("Solo puede ingresar 1 (Sí) o 2 (No).");
                     }
-
-                } while (!Verifi);
-                return _retorno;
-            }
+                }
+                else
+                {
+                    MostrarMensajeError("Debe ingresar 1 o 2.");
+                }
+            } while (!esValido);
+            return resultado;
         }
-        public double VerificarDouble()
+
+        public double VerificarDouble(bool permitirCero = false)
         {
-            string _double1 = "";
-            bool Verifi = false;
+            double resultado;
+            bool esValido = false;
+            do
             {
-                do
+                Console.Write("-> ");
+                string entrada = Console.ReadLine();
+                if (double.TryParse(entrada, out resultado))
                 {
-                    Console.Write("->");
-                    _double1 = Console.ReadLine();
-                    if (double.TryParse(_double1, out double numero))
+                    if (resultado > 0 || (permitirCero && resultado == 0))
                     {
-                        _RetornoDOuble = Convert.ToDouble(_double1);
-                        if (_RetornoDOuble > 0)
-                        {
-                            Verifi = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Porfavor ingrese un numero correcto");
-                            Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                            Console.WriteLine("");
-                        }
-                        Verifi = true;
+                        esValido = true;
                     }
                     else
                     {
-                        Console.WriteLine("Porfavor ingrese un numero correcto");
-                        Console.Write("Pulse una tecla para continuar. . ."); Console.ReadKey();
-                        Console.WriteLine("");
-
+                        MostrarMensajeError(permitirCero ? "Ingrese un número mayor o igual a 0." : "Ingrese un número mayor que 0.");
                     }
-                } while (!Verifi);
-                return _RetornoDOuble;
-            }
+                }
+                else
+                {
+                    MostrarMensajeError("Debe ingresar un número decimal válido.");
+                }
+            } while (!esValido);
+            return resultado;
+        }
+
+        private void MostrarMensajeError(string mensaje)
+        {
+            Console.WriteLine(mensaje);
+            Console.Write("Pulse una tecla para continuar...");
+            Console.ReadKey();
+            Console.WriteLine();
         }
     }
 }

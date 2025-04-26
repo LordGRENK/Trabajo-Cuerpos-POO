@@ -9,6 +9,8 @@ namespace Cuerpos_POO
         public abstract class Poliedros : CuerposGeometricos
         {
         protected string _NombreCuerpo { get; set; }
+        protected double _ancho { get; set; }
+        protected double _arista { get; set; }
         protected double _AreaBase { get; set; }
         protected double _longitud { get; set; }
         protected int _NumeroCaras { get; set; }
