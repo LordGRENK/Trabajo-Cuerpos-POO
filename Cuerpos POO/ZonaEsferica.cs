@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -33,15 +29,11 @@ namespace Cuerpos_POO
 
             Console.WriteLine("Ingrese la altura de la zona esférica:");
             _altura = Verificador.VerificarDouble();
-
-            // Área lateral de la zona esférica (sin contar las tapas): 2πRh
             double areaLateralZona = 2 * Math.PI * _radio * _altura;
-
-            // Volumen de la zona esférica: (πh²(3R - h)) / 6
             double volumenZona = (Math.PI * Math.Pow(_altura, 2) * (3 * _radio - _altura)) / 6;
 
             areaLateral.DefinirAreaLateral(areaLateralZona);
-            areaTotal.DefinirAreaTotal(areaLateralZona); // No hay "tapas" en una zona esférica simple
+            areaTotal.DefinirAreaTotal(areaLateralZona);
             Volumen.DefinirVolumen(volumenZona);
         }
 

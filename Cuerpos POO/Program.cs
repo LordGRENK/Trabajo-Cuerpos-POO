@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -48,7 +44,7 @@ namespace Cuerpos_POO
                 Console.WriteLine("0. Salir");
                 Console.WriteLine("======================");
                 Console.WriteLine("Seleccione una opción:");
-                opcion = Verificador.VerificarEntero(true); // ← se permite 0
+                opcion = Verificador.VerificarEntero(true);
 
                 switch (opcion)
                 {
@@ -88,7 +84,7 @@ namespace Cuerpos_POO
                 Console.WriteLine("0. Volver al menú principal");
                 Console.WriteLine("======================");
                 Console.WriteLine("Seleccione una opción:");
-                opcion = Verificador.VerificarEntero(true); // ← se permite 0
+                opcion = Verificador.VerificarEntero(true);
 
                 switch (opcion)
                 {
@@ -134,7 +130,7 @@ namespace Cuerpos_POO
                 Console.WriteLine("0. Volver al menú principal");
                 Console.WriteLine("======================");
                 Console.WriteLine("Seleccione una opción:");
-                opcion = Verificador.VerificarEntero(true); // ← se permite 0
+                opcion = Verificador.VerificarEntero(true);
 
                 switch (opcion)
                 {

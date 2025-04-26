@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -37,22 +33,12 @@ namespace Cuerpos_POO
 
             Console.WriteLine("Ingrese la altura del tronco de cono (h):");
             double altura = Verificador.VerificarDouble();
-
-            // Calcular la generatriz (l) con el teorema de Pitágoras
             double generatriz = Math.Sqrt(Math.Pow(altura, 2) + Math.Pow(radioMayor - radioMenor, 2));
-
-            // Calcular área lateral: π(r1 + r2) * l
             double areaLateralCono = Math.PI * (radioMayor + radioMenor) * generatriz;
-
-            // Calcular área total: Área lateral + Área de las bases
             double areaBaseMayor = Math.PI * Math.Pow(radioMayor, 2);
             double areaBaseMenor = Math.PI * Math.Pow(radioMenor, 2);
             double areaTotalCono = areaLateralCono + areaBaseMayor + areaBaseMenor;
-
-            // Calcular volumen: (1/3)πh(r1^2 + r1 * r2 + r2^2)
             double volumenCono = (1.0 / 3.0) * Math.PI * altura * (Math.Pow(radioMayor, 2) + (radioMayor * radioMenor) + Math.Pow(radioMenor, 2));
-
-            // Asignar resultados
             areaLateral.DefinirAreaLateral(areaLateralCono);
             areaTotal.DefinirAreaTotal(areaTotalCono);
             Volumen.DefinirVolumen(volumenCono);

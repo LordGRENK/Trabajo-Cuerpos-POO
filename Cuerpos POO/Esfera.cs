@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -16,7 +12,7 @@ namespace Cuerpos_POO
 
         public Esfera()
         {
-            areaLateral = new AreaLateral(); // Aunque no aplica como tal, lo usamos como "área superficial"
+            areaLateral = new AreaLateral();
             areaTotal = new AreaTotal();
             Volumen = new Volumen();
             Verificador = new Verificadores();
@@ -34,7 +30,7 @@ namespace Cuerpos_POO
             double areaSuperficial = 4 * Math.PI * Math.Pow(_radio, 2);
             double volumen = (4.0 / 3.0) * Math.PI * Math.Pow(_radio, 3);
 
-            areaLateral.DefinirAreaLateral(areaSuperficial); // No hay distinción real entre lateral y total
+            areaLateral.DefinirAreaLateral(areaSuperficial);
             areaTotal.DefinirAreaTotal(areaSuperficial);
             Volumen.DefinirVolumen(volumen);
         }

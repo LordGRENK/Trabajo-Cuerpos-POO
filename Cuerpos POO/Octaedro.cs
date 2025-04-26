@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -36,7 +32,6 @@ namespace Cuerpos_POO
             areaTotal.DefinirAreaTotal(areaTotalOctaedro);
             Volumen.DefinirVolumen(volumenOctaedro);
         }
-
         public override void MostrarPoliedro()
         {
             Console.WriteLine("\n============================================");

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -29,14 +25,10 @@ namespace Cuerpos_POO
 
             Console.WriteLine("\nPor favor ingrese la longitud de la arista del tetraedro:");
             _arista = Verificador.VerificarDouble();
-
-            // Área de un triángulo equilátero: (lado^2 * sqrt(3)) / 4
             double areaUnaCara = (_arista * _arista * Math.Sqrt(3)) / 4;
             double areaTotalTetraedro = areaUnaCara * 4;
 
             areaTotal.DefinirAreaTotal(areaTotalTetraedro);
-
-            // Volumen de un tetraedro regular: (lado^3) / (6√2)
             double volumenTetraedro = (_arista * _arista * _arista) / (6 * Math.Sqrt(2));
 
             Volumen.DefinirVolumen(volumenTetraedro);

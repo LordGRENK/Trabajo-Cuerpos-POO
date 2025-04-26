@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using POO_Cuerpos_Geometricos;
 
 namespace Cuerpos_POO
@@ -39,7 +35,6 @@ namespace Cuerpos_POO
 
             if (tipo == "C")
             {
-                // Casquete Esférico
                 Console.WriteLine("Calculando Casquete Esférico...");
                 double areaCurvaCasquete = 2 * Math.PI * _radio * _altura;
                 double volumenCasquete = (Math.PI * Math.Pow(_altura, 2) * (3 * _radio - _altura)) / 6;
@@ -50,15 +45,12 @@ namespace Cuerpos_POO
             }
             else if (tipo == "E")
             {
-                // Cuña Esférica
                 Console.WriteLine("Ingrese el ángulo central de la cuña (en grados):");
                 double anguloGrados = Verificador.VerificarDouble();
-
-                // Volumen de Cuña Esférica: V = (θ / 360) * (4/3)πR³
                 double volumenCuna = (anguloGrados / 360) * (4 * Math.PI * Math.Pow(_radio, 3)) / 3;
 
-                areaLateral.DefinirAreaLateral(0);  // La cuña esférica no tiene área lateral por este cálculo
-                areaTotal.DefinirAreaTotal(0); // Similar a la lateral, ya que la cuña no tiene área curva simple
+                areaLateral.DefinirAreaLateral(0);
+                areaTotal.DefinirAreaTotal(0);
                 Volumen.DefinirVolumen(volumenCuna);
             }
             else
